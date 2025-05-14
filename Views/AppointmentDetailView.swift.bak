@@ -1,0 +1,511 @@
+import SwiftUI
+import MapKit
+import CoreData
+
+struct AppointmentDetailView: View {
+    @Environment(\.presentationMode) private var presentationMode
+    @Environment(\.managedObjectContext) private var viewContext
+    
+    @ObservedObject var appointment: AppointmentEntity
+    @State private var isRefreshing = false
+    @State private var showingGeocodeAlert = false
+    @State private var geocodeMessage = ""
+    
+    var body: some View {
+        ScrollView {
+            VStack(alignment: .leading, spacing: 0) {
+                // Header with property address and status
+                ZStack(alignment: .bottom) {
+                    // Background
+                    Rectangle()
+                        .fill(LinearGradient(
+                            gradient: Gradient(colors: [
+                                Color.blue.opacity(0.7),
+                                Color.blue.opacity(0.6)
+                            ]),
+                            startPoint: .topLeading,
+                            endPoint: .bottomTrailing
+                        ))
+                        .frame(height: 200)
+                        .edgesIgnoringSafeArea(.top)
+                    
+                    // Content
+                    VStack(alignment: .leading, spacing: 8) {
+                        // Status pill
+                        HStack {
+                            Text(appointment.status?.capitalized ?? "Scheduled")
+                                .font(.caption)
+                                .fontWeight(.semibold)
+                                .padding(.horizontal, 12)
+                                .padding(.vertical, 6)
+                                .background(getStatusColor(for: appointment).opacity(0.2))
+                                .foregroundColor(getStatusColor(for: appointment))
+                                .cornerRadius(20)
+                            
+                            Spacer()
+                        }
+                        .padding(.bottom, 8)
+                        
+                        // Address
+                        Text(appointment.propertyAddress ?? "")
+                            .font(.title2)
+                            .fontWeight(.bold)
+                            .foregroundColor(.white)
+                            .multilineTextAlignment(.leading)
+                            .shadow(color: Color.black.opacity(0.2), radius: 1, x: 0, y: 1)
+                        
+                        // Title if different from address
+                        if let title = appointment.title, title != appointment.propertyAddress {
+                            Text(title)
+                                .font(.subheadline)
+                                .foregroundColor(.white.opacity(0.9))
+                                .lineLimit(1)
+                        }
+                        
+                        // Time remaining indicator
+                        timeRemainingView(for: appointment)
+                    }
+                    .padding(.horizontal)
+                    .padding(.top, 16)
+                    .padding(.bottom, 20)
+                }
+                
+                // Content sections
+                VStack(spacing: 16) {
+                    // Appointment Time Section
+                    sectionView(title: "Appointment Time") {
+                        if let start = appointment.startTime, let end = appointment.endTime {
+                            appointmentTimeContent(startTime: start, endTime: end)
+                        }
+                    }
+                    
+                    // Property Details Section
+                    sectionView(title: "Property Details") {
+                        // MLS Number
+                        detailRow(icon: "number", iconColor: .blue, title: "MLS #", value: "Not available")
+                        
+                        // For price, show a placeholder
+                        detailRow(icon: "dollarsign.circle", iconColor: .green, title: "Listing Price", value: "Contact agent")
+                        
+                        // Property details placeholder
+                        detailRow(icon: "house", iconColor: .blue, title: "Details", value: "Property details coming soon")
+                        
+                        Divider()
+                            .padding(.vertical, 8)
+                        
+                        // Location section
+                        locationSection
+                    }
+                    
+                    // Actions Section
+                    sectionView(title: "Actions") {
+                        Button(action: {
+                            // Action to mark complete
+                        }) {
+                            HStack {
+                                Image(systemName: "checkmark.circle")
+                                Text("Mark Complete")
+                            }
+                            .frame(maxWidth: .infinity)
+                            .padding()
+                            .background(Color.green)
+                            .foregroundColor(.white)
+                            .cornerRadius(10)
+                        }
+                        .padding(.bottom, 8)
+                        
+                        Button(action: {
+                            // Emergency action
+                        }) {
+                            HStack {
+                                Image(systemName: "exclamationmark.shield")
+                                Text("Emergency Alert")
+                            }
+                            .frame(maxWidth: .infinity)
+                            .padding()
+                            .background(Color.red)
+                            .foregroundColor(.white)
+                            .cornerRadius(10)
+                        }
+                    }
+                }
+                .padding()
+            }
+        }
+        .background(Color(.systemGroupedBackground))
+        .edgesIgnoringSafeArea(.bottom)
+        .navigationBarTitle("Showing Details", displayMode: .inline)
+        .toolbar {
+            ToolbarItem(placement: .navigationBarTrailing) {
+                Button(action: {
+                    isRefreshing = true
+                    
+                    // Trigger geocoding
+                    if let address = appointment.propertyAddress, !address.isEmpty {
+                        geocodeAddress(address) { newCoordinate in
+                            DispatchQueue.main.async {
+                                isRefreshing = false
+                                
+                                if let newCoordinate = newCoordinate {
+                                    print("✅ Successfully refreshed coordinates: \(newCoordinate.latitude), \(newCoordinate.longitude)")
+                                    
+                                    if let idString = appointment.id, let id = UUID(uuidString: idString) {
+                                        updateAppointmentCoordinates(
+                                            appointmentId: id,
+                                            latitude: newCoordinate.latitude,
+                                            longitude: newCoordinate.longitude
+                                        )
+                                        
+                                        // Show success message
+                                        geocodeMessage = "Updated coordinates successfully!"
+                                        showingGeocodeAlert = true
+                                    } else {
+                                        // Invalid ID
+                                        geocodeMessage = "Could not update coordinates - invalid appointment ID"
+                                        showingGeocodeAlert = true
+                                    }
+                                } else {
+                                    geocodeMessage = "Unable to update coordinates"
+                                    showingGeocodeAlert = true
+                                }
+                            }
+                        }
+                    } else {
+                        isRefreshing = false
+                        geocodeMessage = "No address to geocode"
+                        showingGeocodeAlert = true
+                    }
+                }) {
+                    if isRefreshing {
+                        ProgressView()
+                            .progressViewStyle(CircularProgressViewStyle())
+                    } else {
+                        Image(systemName: "arrow.triangle.2.circlepath")
+                    }
+                }
+            }
+            
+            ToolbarItem(placement: .navigationBarLeading) {
+                Button(action: {
+                    presentationMode.wrappedValue.dismiss()
+                }) {
+                    Image(systemName: "xmark")
+                        .foregroundColor(.primary)
+                }
+            }
+        }
+        .alert(isPresented: $showingGeocodeAlert) {
+            Alert(
+                title: Text("Location Update"),
+                message: Text(geocodeMessage),
+                dismissButton: .default(Text("OK"))
+            )
+        }
+        .onAppear {
+            // Debug info
+            print("🔍 DEBUG: Detail view loaded for appointment at: \(appointment.propertyAddress ?? "No Address")")
+            print("🔍 DEBUG: Current coordinates: \(appointment.latitude), \(appointment.longitude)")
+        }
+    }
+    
+    // MARK: - Computed Properties
+    
+    private var locationSection: some View {
+        VStack(alignment: .leading) {
+            Text("Location")
+                .font(.headline)
+                .foregroundColor(.primary)
+                .padding(.bottom, 4)
+            
+            if let address = appointment.propertyAddress, !address.isEmpty {
+                // Always show location section for any appointment with an address
+                Text(address)
+                    .font(.body)
+                    .foregroundColor(.secondary)
+                    .multilineTextAlignment(.leading)
+                    .padding(.bottom, 8)
+                
+                // Create coordinate if available, otherwise nil
+                let coordinate: CLLocationCoordinate2D? = (appointment.latitude != 0 && appointment.longitude != 0) 
+                    ? CLLocationCoordinate2D(latitude: appointment.latitude, longitude: appointment.longitude)
+                    : nil
+                
+                // Debug text to show current coordinates
+                #if DEBUG
+                if let coordinate = coordinate {
+                    Text("Current coordinates: \(String(format: "%.6f", coordinate.latitude)), \(String(format: "%.6f", coordinate.longitude))")
+                        .font(.caption)
+                        .foregroundColor(.gray)
+                        .padding(.bottom, 4)
+                }
+                #endif
+                
+                // Show map when coordinates are available
+                if let coordinate = coordinate {
+                    Map(coordinateRegion: .constant(MKCoordinateRegion(
+                        center: coordinate,
+                        span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01))),
+                        interactionModes: [],
+                        showsUserLocation: true,
+                        annotationItems: [MapAnnotation(coordinate: coordinate)]) { item in
+                            MapMarker(coordinate: item.coordinate, tint: .red)
+                        }
+                        .frame(height: 200)
+                        .cornerRadius(12)
+                        .padding(.bottom, 12)
+                }
+                
+                // Map actions
+                HStack {
+                    Button(action: {
+                        // Open in maps
+                        if let coordinate = coordinate {
+                            let mapItem = MKMapItem(placemark: MKPlacemark(coordinate: coordinate))
+                            mapItem.name = address
+                            mapItem.openInMaps(launchOptions: [MKLaunchOptionsDirectionsModeKey: MKLaunchOptionsDirectionsModeDriving])
+                        }
+                    }) {
+                        Text("Open in Maps")
+                            .font(.subheadline)
+                            .padding(.vertical, 8)
+                            .padding(.horizontal, 12)
+                            .background(Color.blue)
+                            .foregroundColor(.white)
+                            .cornerRadius(8)
+                    }
+                    
+                    Spacer()
+                    
+                    if coordinate == nil {
+                        Button(action: {
+                            // Trigger geocoding
+                            if let address = appointment.propertyAddress, !address.isEmpty {
+                                isRefreshing = true
+                                geocodeAddress(address) { newCoordinate in
+                                    DispatchQueue.main.async {
+                                        isRefreshing = false
+                                        if let newCoordinate = newCoordinate, let idString = appointment.id, let id = UUID(uuidString: idString) {
+                                            updateAppointmentCoordinates(
+                                                appointmentId: id,
+                                                latitude: newCoordinate.latitude,
+                                                longitude: newCoordinate.longitude
+                                            )
+                                            geocodeMessage = "Successfully added coordinates!"
+                                            showingGeocodeAlert = true
+                                        } else {
+                                            geocodeMessage = "Could not geocode address"
+                                            showingGeocodeAlert = true
+                                        }
+                                    }
+                                }
+                            }
+                        }) {
+                            Text("Get Coordinates")
+                                .font(.subheadline)
+                                .padding(.vertical, 8)
+                                .padding(.horizontal, 12)
+                                .background(Color.green)
+                                .foregroundColor(.white)
+                                .cornerRadius(8)
+                        }
+                    }
+                }
+            } else {
+                Text("No address information available")
+                    .font(.subheadline)
+                    .foregroundColor(.secondary)
+            }
+        }
+    }
+    
+    // MARK: - Helper Methods
+    
+    // Helper view for time remaining
+    private func timeRemainingView(for appointment: AppointmentEntity) -> some View {
+        Group {
+            if let startTime = appointment.startTime {
+                let now = Date()
+                if startTime > now {
+                    // Upcoming appointment
+                    let components = Calendar.current.dateComponents([.day, .hour, .minute], from: now, to: startTime)
+                    if let days = components.day, days > 0 {
+                        Text("in \(days) day\(days > 1 ? "s" : "")")
+                            .font(.subheadline)
+                            .foregroundColor(.white.opacity(0.9))
+                            .padding(.top, 4)
+                    } else if let hours = components.hour, hours > 0 {
+                        Text("in \(hours) hour\(hours > 1 ? "s" : "")")
+                            .font(.subheadline)
+                            .foregroundColor(.white.opacity(0.9))
+                            .padding(.top, 4)
+                    } else if let minutes = components.minute {
+                        Text("in \(minutes) minute\(minutes > 1 ? "s" : "")")
+                            .font(.subheadline)
+                            .foregroundColor(.white.opacity(0.9))
+                            .padding(.top, 4)
+                    }
+                } else if let endTime = appointment.endTime, endTime > now {
+                    // Current appointment
+                    let components = Calendar.current.dateComponents([.hour, .minute], from: now, to: endTime)
+                    if let hours = components.hour, hours > 0 {
+                        Text("\(hours) hour\(hours > 1 ? "s" : "") left")
+                            .font(.subheadline)
+                            .foregroundColor(.white.opacity(0.9))
+                            .padding(.top, 4)
+                    } else if let minutes = components.minute {
+                        Text("\(minutes) minute\(minutes > 1 ? "s" : "") left")
+                            .font(.subheadline)
+                            .foregroundColor(.white.opacity(0.9))
+                            .padding(.top, 4)
+                    }
+                }
+            }
+        }
+    }
+    
+    // Content view for appointment time information
+    private func appointmentTimeContent(startTime: Date, endTime: Date) -> some View {
+        VStack(spacing: 8) {
+            HStack(alignment: .top) {
+                VStack(alignment: .leading, spacing: 8) {
+                    Label {
+                        Text("Start")
+                            .font(.subheadline)
+                            .foregroundColor(.secondary)
+                    } icon: {
+                        Image(systemName: "clock")
+                            .foregroundColor(.green)
+                    }
+                    
+                    Text(startTime, style: .date)
+                        .font(.subheadline)
+                    
+                    Text(startTime, style: .time)
+                        .font(.headline)
+                }
+                
+                Spacer()
+                
+                VStack(alignment: .trailing, spacing: 8) {
+                    Label {
+                        Text("End")
+                            .font(.subheadline)
+                            .foregroundColor(.secondary)
+                    } icon: {
+                        Image(systemName: "clock")
+                            .foregroundColor(.red)
+                    }
+                    
+                    Text(endTime, style: .date)
+                        .font(.subheadline)
+                    
+                    Text(endTime, style: .time)
+                        .font(.headline)
+                }
+            }
+            .padding(.vertical, 4)
+            
+            Divider()
+            
+            // Duration
+            let duration = Calendar.current.dateComponents([.hour, .minute], from: startTime, to: endTime)
+            if let hours = duration.hour, let minutes = duration.minute {
+                HStack {
+                    Label {
+                        Text("Duration: \(hours > 0 ? "\(hours)h " : "")\(minutes)m")
+                            .font(.subheadline)
+                    } icon: {
+                        Image(systemName: "hourglass")
+                            .foregroundColor(.blue)
+                    }
+                    
+                    Spacer()
+                }
+                .padding(.vertical, 8)
+            }
+        }
+    }
+}
+
+// MARK: - Helper Structs
+
+// Helper struct for map annotations
+struct MapAnnotation: Identifiable {
+    let id = UUID()
+    let coordinate: CLLocationCoordinate2D
+}
+
+// MARK: - Helper Functions
+
+// Function to get status color
+func getStatusColor(for appointment: AppointmentEntity) -> Color {
+    guard let startTime = appointment.startTime, let endTime = appointment.endTime else {
+        return .blue
+    }
+    
+    let now = Date()
+    if startTime <= now && endTime >= now {
+        // Current appointment
+        return .green
+    } else if startTime > now {
+        // Upcoming appointment
+        return .blue
+    } else {
+        // Past appointment
+        return .gray
+    }
+}
+
+// Section view for appointment details
+func sectionView<Content: View>(title: String, @ViewBuilder content: () -> Content) -> some View {
+    VStack(alignment: .leading, spacing: 12) {
+        Text(title)
+            .font(.headline)
+            .foregroundColor(.primary)
+        
+        VStack(alignment: .leading, spacing: 8) {
+            content()
+        }
+        .padding()
+        .background(Color(.systemBackground))
+        .cornerRadius(12)
+    }
+}
+
+// Detail row for property information
+func detailRow(icon: String, iconColor: Color, title: String, value: String) -> some View {
+    HStack(alignment: .top) {
+        Image(systemName: icon)
+            .foregroundColor(iconColor)
+            .frame(width: 24, height: 24)
+        
+        VStack(alignment: .leading, spacing: 4) {
+            Text(title)
+                .font(.caption)
+                .foregroundColor(.secondary)
+            
+            Text(value)
+                .font(.body)
+                .foregroundColor(.primary)
+        }
+        
+        Spacer()
+    }
+    .padding(.vertical, 4)
+}
+
+#Preview {
+    let context = PersistenceController.preview.container.viewContext
+    let appointment = AppointmentEntity(context: context)
+    appointment.id = UUID().uuidString
+    appointment.title = "123 Main St Showing"
+    appointment.propertyAddress = "123 Main St, Anna, TX"
+    appointment.startTime = Date()
+    appointment.endTime = Date().addingTimeInterval(3600)
+    appointment.latitude = 33.350788
+    appointment.longitude = -96.526566
+    appointment.status = "scheduled"
+    
+    return AppointmentDetailView(appointment: appointment)
+        .environment(\.managedObjectContext, context)
+}

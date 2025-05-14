@@ -6,6 +6,45 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		BB07BC162DCFE96200F1C7C4 /* AccessibilityIdentifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB07BC152DCFE96200F1C7C4 /* AccessibilityIdentifiers.swift */; };
+		BB07BC182DCFE97100F1C7C4 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = BB07BC172DCFE97100F1C7C4 /* Localizable.strings */; };
+		BB07BC1A2DCFE97F00F1C7C4 /* SafetyDashboardWatchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB07BC192DCFE97F00F1C7C4 /* SafetyDashboardWatchView.swift */; };
+		BB07BC1C2DCFE98E00F1C7C4 /* AlertConfirmationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB07BC1B2DCFE98E00F1C7C4 /* AlertConfirmationView.swift */; };
+		BB07BC1E2DCFE99600F1C7C4 /* AppointmentDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB07BC1D2DCFE99600F1C7C4 /* AppointmentDetailView.swift */; };
+		BB07BC202DCFE99B00F1C7C4 /* AppointmentsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB07BC1F2DCFE99B00F1C7C4 /* AppointmentsView.swift */; };
+		BB07BC222DCFE9A100F1C7C4 /* CalendarOnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB07BC212DCFE9A100F1C7C4 /* CalendarOnboardingView.swift */; };
+		BB07BC242DCFE9A800F1C7C4 /* CalendarShowingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB07BC232DCFE9A800F1C7C4 /* CalendarShowingsView.swift */; };
+		BB07BC262DCFE9AE00F1C7C4 /* EmergencyContactsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB07BC252DCFE9AE00F1C7C4 /* EmergencyContactsView.swift */; };
+		BB07BC282DCFE9B400F1C7C4 /* ImportCalendarEvents.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB07BC272DCFE9B400F1C7C4 /* ImportCalendarEvents.swift */; };
+		BB07BC2E2DCFE9BB00F1C7C4 /* LocationOnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB07BC292DCFE9BB00F1C7C4 /* LocationOnboardingView.swift */; };
+		BB07BC2F2DCFE9BB00F1C7C4 /* PanicButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB07BC2D2DCFE9BB00F1C7C4 /* PanicButtonView.swift */; };
+		BB07BC302DCFE9BB00F1C7C4 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB07BC2A2DCFE9BB00F1C7C4 /* LoginView.swift */; };
+		BB07BC312DCFE9BB00F1C7C4 /* NotificationOnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB07BC2C2DCFE9BB00F1C7C4 /* NotificationOnboardingView.swift */; };
+		BB07BC322DCFE9BB00F1C7C4 /* MLSListingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB07BC2B2DCFE9BB00F1C7C4 /* MLSListingsView.swift */; };
+		BB07BC352DCFE9C300F1C7C4 /* SafetyDashboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB07BC342DCFE9C300F1C7C4 /* SafetyDashboardView.swift */; };
+		BB07BC362DCFE9C300F1C7C4 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB07BC332DCFE9C300F1C7C4 /* ProfileView.swift */; };
+		BB07BC382DCFE9D500F1C7C4 /* MLSListingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB07BC372DCFE9D500F1C7C4 /* MLSListingsViewModel.swift */; };
+		BB07BC3E2DCFE9E700F1C7C4 /* SafetyMonitorService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB07BC3D2DCFE9E700F1C7C4 /* SafetyMonitorService.swift */; };
+		BB07BC3F2DCFE9E700F1C7C4 /* MLSService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB07BC3B2DCFE9E700F1C7C4 /* MLSService.swift */; };
+		BB07BC402DCFE9E700F1C7C4 /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB07BC3C2DCFE9E700F1C7C4 /* NotificationService.swift */; };
+		BB07BC412DCFE9E700F1C7C4 /* AuthenticationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB07BC392DCFE9E700F1C7C4 /* AuthenticationService.swift */; };
+		BB07BC422DCFE9E700F1C7C4 /* CalendarService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB07BC3A2DCFE9E700F1C7C4 /* CalendarService.swift */; };
+		BB07BC452DCFE9F800F1C7C4 /* Agent.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB07BC432DCFE9F800F1C7C4 /* Agent.swift */; };
+		BB07BC462DCFE9F800F1C7C4 /* Appointment.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB07BC442DCFE9F800F1C7C4 /* Appointment.swift */; };
+		BB07BC482DCFEA0A00F1C7C4 /* LicenseValidationRules.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB07BC472DCFEA0A00F1C7C4 /* LicenseValidationRules.swift */; };
+		BB07BC4A2DCFEA1200F1C7C4 /* SafeAgentApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB07BC492DCFEA1200F1C7C4 /* SafeAgentApp.swift */; };
+		BB07BC4D2DCFEAB500F1C7C4 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = BB07BC4C2DCFEAB500F1C7C4 /* FirebaseAuth */; };
+		BB07BC4F2DCFEAB500F1C7C4 /* FirebaseDatabase in Frameworks */ = {isa = PBXBuildFile; productRef = BB07BC4E2DCFEAB500F1C7C4 /* FirebaseDatabase */; };
+		BB07BC512DCFEAB500F1C7C4 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = BB07BC502DCFEAB500F1C7C4 /* FirebaseFirestore */; };
+		BB07BC532DCFEAB500F1C7C4 /* FirebaseFirestoreCombine-Community in Frameworks */ = {isa = PBXBuildFile; productRef = BB07BC522DCFEAB500F1C7C4 /* FirebaseFirestoreCombine-Community */; };
+		BB07BC562DCFEAD700F1C7C4 /* GoogleSignIn in Frameworks */ = {isa = PBXBuildFile; productRef = BB07BC552DCFEAD700F1C7C4 /* GoogleSignIn */; };
+		BB07BC582DCFEAD700F1C7C4 /* GoogleSignInSwift in Frameworks */ = {isa = PBXBuildFile; productRef = BB07BC572DCFEAD700F1C7C4 /* GoogleSignInSwift */; };
+		BB139E4B2DD3850B00E9D8A2 /* FirestoreService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB139E4A2DD3850500E9D8A2 /* FirestoreService.swift */; };
+		BB139E4D2DD391FB00E9D8A2 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = BB139E4C2DD391FB00E9D8A2 /* GoogleService-Info.plist */; };
+		BB90E8E52DD184D50063B784 /* SafeAgent_New.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = BB90E8E12DD184D50063B784 /* SafeAgent_New.xcdatamodeld */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXContainerItemProxy section */
 		BB07BBF02DCFE86F00F1C7C4 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -27,6 +66,37 @@
 		BB07BBDA2DCFE86E00F1C7C4 /* SafeAgent_New.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SafeAgent_New.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BB07BBEF2DCFE86F00F1C7C4 /* SafeAgent_NewTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SafeAgent_NewTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		BB07BBF92DCFE86F00F1C7C4 /* SafeAgent_NewUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SafeAgent_NewUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		BB07BC112DCFE8FC00F1C7C4 /* PersistenceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceController.swift; sourceTree = "<group>"; };
+		BB07BC152DCFE96200F1C7C4 /* AccessibilityIdentifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessibilityIdentifiers.swift; sourceTree = "<group>"; };
+		BB07BC172DCFE97100F1C7C4 /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
+		BB07BC192DCFE97F00F1C7C4 /* SafetyDashboardWatchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafetyDashboardWatchView.swift; sourceTree = "<group>"; };
+		BB07BC1B2DCFE98E00F1C7C4 /* AlertConfirmationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertConfirmationView.swift; sourceTree = "<group>"; };
+		BB07BC1D2DCFE99600F1C7C4 /* AppointmentDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppointmentDetailView.swift; sourceTree = "<group>"; };
+		BB07BC1F2DCFE99B00F1C7C4 /* AppointmentsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppointmentsView.swift; sourceTree = "<group>"; };
+		BB07BC212DCFE9A100F1C7C4 /* CalendarOnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarOnboardingView.swift; sourceTree = "<group>"; };
+		BB07BC232DCFE9A800F1C7C4 /* CalendarShowingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarShowingsView.swift; sourceTree = "<group>"; };
+		BB07BC252DCFE9AE00F1C7C4 /* EmergencyContactsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmergencyContactsView.swift; sourceTree = "<group>"; };
+		BB07BC272DCFE9B400F1C7C4 /* ImportCalendarEvents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImportCalendarEvents.swift; sourceTree = "<group>"; };
+		BB07BC292DCFE9BB00F1C7C4 /* LocationOnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationOnboardingView.swift; sourceTree = "<group>"; };
+		BB07BC2A2DCFE9BB00F1C7C4 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		BB07BC2B2DCFE9BB00F1C7C4 /* MLSListingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MLSListingsView.swift; sourceTree = "<group>"; };
+		BB07BC2C2DCFE9BB00F1C7C4 /* NotificationOnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationOnboardingView.swift; sourceTree = "<group>"; };
+		BB07BC2D2DCFE9BB00F1C7C4 /* PanicButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PanicButtonView.swift; sourceTree = "<group>"; };
+		BB07BC332DCFE9C300F1C7C4 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
+		BB07BC342DCFE9C300F1C7C4 /* SafetyDashboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafetyDashboardView.swift; sourceTree = "<group>"; };
+		BB07BC372DCFE9D500F1C7C4 /* MLSListingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MLSListingsViewModel.swift; sourceTree = "<group>"; };
+		BB07BC392DCFE9E700F1C7C4 /* AuthenticationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationService.swift; sourceTree = "<group>"; };
+		BB07BC3A2DCFE9E700F1C7C4 /* CalendarService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarService.swift; sourceTree = "<group>"; };
+		BB07BC3B2DCFE9E700F1C7C4 /* MLSService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MLSService.swift; sourceTree = "<group>"; };
+		BB07BC3C2DCFE9E700F1C7C4 /* NotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationService.swift; sourceTree = "<group>"; };
+		BB07BC3D2DCFE9E700F1C7C4 /* SafetyMonitorService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafetyMonitorService.swift; sourceTree = "<group>"; };
+		BB07BC432DCFE9F800F1C7C4 /* Agent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Agent.swift; sourceTree = "<group>"; };
+		BB07BC442DCFE9F800F1C7C4 /* Appointment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Appointment.swift; sourceTree = "<group>"; };
+		BB07BC472DCFEA0A00F1C7C4 /* LicenseValidationRules.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LicenseValidationRules.swift; sourceTree = "<group>"; };
+		BB07BC492DCFEA1200F1C7C4 /* SafeAgentApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafeAgentApp.swift; sourceTree = "<group>"; };
+		BB139E4A2DD3850500E9D8A2 /* FirestoreService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirestoreService.swift; sourceTree = "<group>"; };
+		BB139E4C2DD391FB00E9D8A2 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		BB90E8E22DD184D50063B784 /* SafeAgent_New.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = SafeAgent_New.xcdatamodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -52,6 +122,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BB07BC562DCFEAD700F1C7C4 /* GoogleSignIn in Frameworks */,
+				BB07BC4F2DCFEAB500F1C7C4 /* FirebaseDatabase in Frameworks */,
+				BB07BC532DCFEAB500F1C7C4 /* FirebaseFirestoreCombine-Community in Frameworks */,
+				BB07BC582DCFEAD700F1C7C4 /* GoogleSignInSwift in Frameworks */,
+				BB07BC4D2DCFEAB500F1C7C4 /* FirebaseAuth in Frameworks */,
+				BB07BC512DCFEAB500F1C7C4 /* FirebaseFirestore in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -75,10 +151,20 @@
 		BB07BBD12DCFE86E00F1C7C4 = {
 			isa = PBXGroup;
 			children = (
+				BB139E4A2DD3850500E9D8A2 /* FirestoreService.swift */,
+				BB90E8E12DD184D50063B784 /* SafeAgent_New.xcdatamodeld */,
+				BB07BC102DCFE8C600F1C7C4 /* Utilities */,
+				BB07BC0F2DCFE8BE00F1C7C4 /* Views */,
+				BB07BC0E2DCFE8B300F1C7C4 /* ViewModels */,
+				BB07BC0D2DCFE8AB00F1C7C4 /* Services */,
+				BB07BC0C2DCFE8A200F1C7C4 /* Models */,
 				BB07BBDC2DCFE86E00F1C7C4 /* SafeAgent_New */,
 				BB07BBF22DCFE86F00F1C7C4 /* SafeAgent_NewTests */,
 				BB07BBFC2DCFE86F00F1C7C4 /* SafeAgent_NewUITests */,
 				BB07BBDB2DCFE86E00F1C7C4 /* Products */,
+				BB07BC472DCFEA0A00F1C7C4 /* LicenseValidationRules.swift */,
+				BB07BC492DCFEA1200F1C7C4 /* SafeAgentApp.swift */,
+				BB139E4C2DD391FB00E9D8A2 /* GoogleService-Info.plist */,
 			);
 			sourceTree = "<group>";
 		};
@@ -90,6 +176,91 @@
 				BB07BBF92DCFE86F00F1C7C4 /* SafeAgent_NewUITests.xctest */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		BB07BC0C2DCFE8A200F1C7C4 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				BB07BC432DCFE9F800F1C7C4 /* Agent.swift */,
+				BB07BC442DCFE9F800F1C7C4 /* Appointment.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		BB07BC0D2DCFE8AB00F1C7C4 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				BB07BC392DCFE9E700F1C7C4 /* AuthenticationService.swift */,
+				BB07BC3A2DCFE9E700F1C7C4 /* CalendarService.swift */,
+				BB07BC3B2DCFE9E700F1C7C4 /* MLSService.swift */,
+				BB07BC3C2DCFE9E700F1C7C4 /* NotificationService.swift */,
+				BB07BC3D2DCFE9E700F1C7C4 /* SafetyMonitorService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		BB07BC0E2DCFE8B300F1C7C4 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				BB07BC372DCFE9D500F1C7C4 /* MLSListingsViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		BB07BC0F2DCFE8BE00F1C7C4 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				BB07BC142DCFE95000F1C7C4 /* Watch */,
+				BB07BC132DCFE94000F1C7C4 /* Localization */,
+				BB07BC122DCFE92B00F1C7C4 /* Accessibility */,
+				BB07BC1B2DCFE98E00F1C7C4 /* AlertConfirmationView.swift */,
+				BB07BC1D2DCFE99600F1C7C4 /* AppointmentDetailView.swift */,
+				BB07BC1F2DCFE99B00F1C7C4 /* AppointmentsView.swift */,
+				BB07BC212DCFE9A100F1C7C4 /* CalendarOnboardingView.swift */,
+				BB07BC232DCFE9A800F1C7C4 /* CalendarShowingsView.swift */,
+				BB07BC252DCFE9AE00F1C7C4 /* EmergencyContactsView.swift */,
+				BB07BC272DCFE9B400F1C7C4 /* ImportCalendarEvents.swift */,
+				BB07BC292DCFE9BB00F1C7C4 /* LocationOnboardingView.swift */,
+				BB07BC2A2DCFE9BB00F1C7C4 /* LoginView.swift */,
+				BB07BC2B2DCFE9BB00F1C7C4 /* MLSListingsView.swift */,
+				BB07BC2C2DCFE9BB00F1C7C4 /* NotificationOnboardingView.swift */,
+				BB07BC2D2DCFE9BB00F1C7C4 /* PanicButtonView.swift */,
+				BB07BC332DCFE9C300F1C7C4 /* ProfileView.swift */,
+				BB07BC342DCFE9C300F1C7C4 /* SafetyDashboardView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		BB07BC102DCFE8C600F1C7C4 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				BB07BC112DCFE8FC00F1C7C4 /* PersistenceController.swift */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		BB07BC122DCFE92B00F1C7C4 /* Accessibility */ = {
+			isa = PBXGroup;
+			children = (
+				BB07BC152DCFE96200F1C7C4 /* AccessibilityIdentifiers.swift */,
+			);
+			path = Accessibility;
+			sourceTree = "<group>";
+		};
+		BB07BC132DCFE94000F1C7C4 /* Localization */ = {
+			isa = PBXGroup;
+			children = (
+				BB07BC172DCFE97100F1C7C4 /* Localizable.strings */,
+			);
+			path = Localization;
+			sourceTree = "<group>";
+		};
+		BB07BC142DCFE95000F1C7C4 /* Watch */ = {
+			isa = PBXGroup;
+			children = (
+				BB07BC192DCFE97F00F1C7C4 /* SafetyDashboardWatchView.swift */,
+			);
+			path = Watch;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -112,6 +283,12 @@
 			);
 			name = SafeAgent_New;
 			packageProductDependencies = (
+				BB07BC4C2DCFEAB500F1C7C4 /* FirebaseAuth */,
+				BB07BC4E2DCFEAB500F1C7C4 /* FirebaseDatabase */,
+				BB07BC502DCFEAB500F1C7C4 /* FirebaseFirestore */,
+				BB07BC522DCFEAB500F1C7C4 /* FirebaseFirestoreCombine-Community */,
+				BB07BC552DCFEAD700F1C7C4 /* GoogleSignIn */,
+				BB07BC572DCFEAD700F1C7C4 /* GoogleSignInSwift */,
 			);
 			productName = SafeAgent_New;
 			productReference = BB07BBDA2DCFE86E00F1C7C4 /* SafeAgent_New.app */;
@@ -195,6 +372,10 @@
 			);
 			mainGroup = BB07BBD12DCFE86E00F1C7C4;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				BB07BC4B2DCFEAB500F1C7C4 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				BB07BC542DCFEAD700F1C7C4 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = BB07BBDB2DCFE86E00F1C7C4 /* Products */;
 			projectDirPath = "";
@@ -212,6 +393,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BB139E4D2DD391FB00E9D8A2 /* GoogleService-Info.plist in Resources */,
+				BB07BC182DCFE97100F1C7C4 /* Localizable.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -236,6 +419,34 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BB07BC162DCFE96200F1C7C4 /* AccessibilityIdentifiers.swift in Sources */,
+				BB07BC222DCFE9A100F1C7C4 /* CalendarOnboardingView.swift in Sources */,
+				BB07BC352DCFE9C300F1C7C4 /* SafetyDashboardView.swift in Sources */,
+				BB07BC362DCFE9C300F1C7C4 /* ProfileView.swift in Sources */,
+				BB07BC1E2DCFE99600F1C7C4 /* AppointmentDetailView.swift in Sources */,
+				BB07BC282DCFE9B400F1C7C4 /* ImportCalendarEvents.swift in Sources */,
+				BB07BC2E2DCFE9BB00F1C7C4 /* LocationOnboardingView.swift in Sources */,
+				BB07BC2F2DCFE9BB00F1C7C4 /* PanicButtonView.swift in Sources */,
+				BB90E8E52DD184D50063B784 /* SafeAgent_New.xcdatamodeld in Sources */,
+				BB07BC302DCFE9BB00F1C7C4 /* LoginView.swift in Sources */,
+				BB07BC312DCFE9BB00F1C7C4 /* NotificationOnboardingView.swift in Sources */,
+				BB139E4B2DD3850B00E9D8A2 /* FirestoreService.swift in Sources */,
+				BB07BC4A2DCFEA1200F1C7C4 /* SafeAgentApp.swift in Sources */,
+				BB07BC452DCFE9F800F1C7C4 /* Agent.swift in Sources */,
+				BB07BC462DCFE9F800F1C7C4 /* Appointment.swift in Sources */,
+				BB07BC322DCFE9BB00F1C7C4 /* MLSListingsView.swift in Sources */,
+				BB07BC1C2DCFE98E00F1C7C4 /* AlertConfirmationView.swift in Sources */,
+				BB07BC202DCFE99B00F1C7C4 /* AppointmentsView.swift in Sources */,
+				BB07BC262DCFE9AE00F1C7C4 /* EmergencyContactsView.swift in Sources */,
+				BB07BC482DCFEA0A00F1C7C4 /* LicenseValidationRules.swift in Sources */,
+				BB07BC3E2DCFE9E700F1C7C4 /* SafetyMonitorService.swift in Sources */,
+				BB07BC3F2DCFE9E700F1C7C4 /* MLSService.swift in Sources */,
+				BB07BC402DCFE9E700F1C7C4 /* NotificationService.swift in Sources */,
+				BB07BC412DCFE9E700F1C7C4 /* AuthenticationService.swift in Sources */,
+				BB07BC422DCFE9E700F1C7C4 /* CalendarService.swift in Sources */,
+				BB07BC382DCFE9D500F1C7C4 /* MLSListingsViewModel.swift in Sources */,
+				BB07BC242DCFE9A800F1C7C4 /* CalendarShowingsView.swift in Sources */,
+				BB07BC1A2DCFE97F00F1C7C4 /* SafetyDashboardWatchView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -393,12 +604,18 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = SafeAgent_New/SafeAgent_New.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"SafeAgent_New/Preview Content\"";
 				DEVELOPMENT_TEAM = XC45473354;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "SafeAgent-New-Info.plist";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
+				INFOPLIST_KEY_NSCalendarsUsageDescription = "This app needs access to your calendar to show your appointments and events";
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "This app needs your location to enable safety features at showings";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "This app needs your location to enable safety features at showings";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -409,11 +626,15 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.SafeAgent.SafeAgent-New";
+				PRODUCT_BUNDLE_IDENTIFIER = com.safeagent;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -422,12 +643,18 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = SafeAgent_New/SafeAgent_New.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"SafeAgent_New/Preview Content\"";
 				DEVELOPMENT_TEAM = XC45473354;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "SafeAgent-New-Info.plist";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
+				INFOPLIST_KEY_NSCalendarsUsageDescription = "This app needs access to your calendar to show your appointments and events";
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "This app needs your location to enable safety features at showings";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "This app needs your location to enable safety features at showings";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -438,11 +665,15 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.SafeAgent.SafeAgent-New";
+				PRODUCT_BUNDLE_IDENTIFIER = com.safeagent;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
@@ -558,6 +789,71 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		BB07BC4B2DCFEAB500F1C7C4 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 11.12.0;
+			};
+		};
+		BB07BC542DCFEAD700F1C7C4 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/google/GoogleSignIn-iOS";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 8.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		BB07BC4C2DCFEAB500F1C7C4 /* FirebaseAuth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = BB07BC4B2DCFEAB500F1C7C4 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAuth;
+		};
+		BB07BC4E2DCFEAB500F1C7C4 /* FirebaseDatabase */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = BB07BC4B2DCFEAB500F1C7C4 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseDatabase;
+		};
+		BB07BC502DCFEAB500F1C7C4 /* FirebaseFirestore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = BB07BC4B2DCFEAB500F1C7C4 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestore;
+		};
+		BB07BC522DCFEAB500F1C7C4 /* FirebaseFirestoreCombine-Community */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = BB07BC4B2DCFEAB500F1C7C4 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = "FirebaseFirestoreCombine-Community";
+		};
+		BB07BC552DCFEAD700F1C7C4 /* GoogleSignIn */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = BB07BC542DCFEAD700F1C7C4 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */;
+			productName = GoogleSignIn;
+		};
+		BB07BC572DCFEAD700F1C7C4 /* GoogleSignInSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = BB07BC542DCFEAD700F1C7C4 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */;
+			productName = GoogleSignInSwift;
+		};
+/* End XCSwiftPackageProductDependency section */
+
+/* Begin XCVersionGroup section */
+		BB90E8E12DD184D50063B784 /* SafeAgent_New.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				BB90E8E22DD184D50063B784 /* SafeAgent_New.xcdatamodel */,
+			);
+			currentVersion = BB90E8E22DD184D50063B784 /* SafeAgent_New.xcdatamodel */;
+			path = SafeAgent_New.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = BB07BBD22DCFE86E00F1C7C4 /* Project object */;
 }

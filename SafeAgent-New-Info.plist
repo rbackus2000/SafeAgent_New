@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CFBundleGetInfoString</key>
+	<string></string>
+	<key>LSApplicationQueriesSchemes</key>
+	<array>
+		<string>comgooglemaps</string>
+		<string>googlemaps</string>
+		<string>maps</string>
+		<string>waze</string>
+		<string>citymapper</string>
+		<string>navigon</string>
+	</array>
+	<key>NSAppTransportSecurity</key>
+	<dict/>
+	<key>NSExceptionAllowsInsecureHTTPLoads</key>
+	<string>FALSE</string>
+	<key>NSExceptionDomains</key>
+	<dict/>
+	<key>NSExceptionRequiresForwardSecrecy</key>
+	<string>FALSE</string>
+	<key>NSIncludesSubdomains</key>
+	<string>TRUE</string>
+	<key>NSLocationAlwaysAndWhenInUseUsageDescriptio</key>
+	<string>This app needs your location to enable safety features at showings</string>
+	<key>UIBackgroundModes</key>
+	<array>
+		<string>location</string>
+	</array>
+	<key>noonlight.com</key>
+	<dict/>
+</dict>
+</plist>
