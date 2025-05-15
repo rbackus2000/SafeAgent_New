@@ -163,6 +163,10 @@
 - Improved MLSListingDetailView to show property image, address, price, and details, matching the rest of the app's style.
 - Fixed type-checking and compiler issues related to complex SwiftUI view builders for tag chips.
 - Ensured all changes are consistent with MVVM and SwiftUI best practices.
+- Added a Sign Out button to ProfileView that signs out the user from Firebase and updates authentication state (June 15, 2025)
+- Fixed 'Cannot find Auth in scope' error in ProfileView by importing FirebaseAuth (June 15, 2025)
+- Removed duplicate Sign in with Apple button from LoginView, keeping only the blue custom button (June 15, 2025)
+- Updated Sign Out button in ProfileView to use blue background and white text for visual consistency (June 15, 2025)
 
 ### Panic Button & Noonlight Integration (June 15, 2025)
 - Made panic button responsive and visually prominent on all iPhone screen sizes using GeometryReader and dynamic sizing.

@@ -75,28 +75,6 @@ struct LoginView: View {
                 
                 Spacer()
                 
-                // Sign in button
-                SignInWithAppleButton(
-                    .signIn,
-                    onRequest: { _ in
-                        // Handled by our AuthenticationService
-                    },
-                    onCompletion: { _ in
-                        // Handled by our AuthenticationService delegate
-                    }
-                )
-                .frame(height: 55)
-                .signInWithAppleButtonStyle(colorScheme == .dark ? .white : .black)
-                .cornerRadius(12)
-                .padding(.horizontal, 24)
-                .shadow(color: Color.black.opacity(0.1), radius: 5, x: 0, y: 2)
-                .opacity(isAnimating ? 1.0 : 0.0)
-                .offset(y: isAnimating ? 0 : 20)
-                .animation(.easeOut(duration: 0.8).delay(0.6), value: isAnimating)
-                .onTapGesture {
-                    authService.signInWithApple()
-                }
-                
                 // Manual sign in button for testing
                 if showDebugUI {
                     Button(action: {
