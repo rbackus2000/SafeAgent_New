@@ -167,6 +167,7 @@
 - Fixed 'Cannot find Auth in scope' error in ProfileView by importing FirebaseAuth (June 15, 2025)
 - Removed duplicate Sign in with Apple button from LoginView, keeping only the blue custom button (June 15, 2025)
 - Updated Sign Out button in ProfileView to use blue background and white text for visual consistency (June 15, 2025)
+- Fixed Firebase Storage profile image upload: explicitly set contentType to 'image/jpeg' in upload metadata to match security rules and resolve permission errors. Updated troubleshooting steps and ensured only one FirestoreService.swift is used and properly referenced. (June 16, 2025)
 
 ### Panic Button & Noonlight Integration (June 15, 2025)
 - Made panic button responsive and visually prominent on all iPhone screen sizes using GeometryReader and dynamic sizing.
@@ -182,6 +183,7 @@
 
 - Future: Consider a more native, compact, and visually appealing tag chip layout for property features if/when user requests it again.
 - Noonlight API integration requires correct endpoint, valid bearer token, and proper OAuth scopes (e.g., `write:alarm`). Webhook URL is only needed for backend event notifications, not for basic panic alerting from the app. (June 15, 2025)
+- Firebase Storage will reject uploads with incorrect contentType (e.g., text/plain); always set correct image contentType in upload metadata. (June 16, 2025)
 
 ---
 

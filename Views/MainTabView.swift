@@ -84,6 +84,7 @@ class GeofenceManager: NSObject, ObservableObject, CLLocationManagerDelegate {
 
 struct MainTabView: View {
     @StateObject var geofenceManager = GeofenceManager()
+    @StateObject var authService = AuthenticationService()
     
     var body: some View {
         TabView {
@@ -102,6 +103,15 @@ struct MainTabView: View {
                 .tabItem {
                     Label("Settings", systemImage: "gear")
                 }
+            
+            // Add Profile tab with navigation and authService
+            NavigationStack {
+                ProfileView()
+                    .environmentObject(authService)
+            }
+            .tabItem {
+                Label("Profile", systemImage: "person")
+            }
         }
         .environmentObject(geofenceManager)
     }

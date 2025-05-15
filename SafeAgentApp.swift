@@ -67,6 +67,7 @@ struct RootView: View {
             // Re-check location status when app becomes active
             safetyMonitorService.locationStatus = CLLocationManager().authorizationStatus
             safetyMonitorService.promptForAlwaysAuthorizationIfNeeded()
+            checkNotificationPermission()
         }
     }
 
