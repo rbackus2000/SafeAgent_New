@@ -1,4 +1,5 @@
 import SwiftUI
+import FirebaseAuth
 
 struct ProfileView: View {
     @State private var agent = Agent(id: UUID(), firstName: "Jane", lastName: "Doe", email: "jane@example.com", phoneNumber: "(555) 123-4567", brokerName: "Acme Realty", emergencyContacts: [])
@@ -114,6 +115,10 @@ struct ProfileView: View {
         }
         .navigationTitle("Profile")
         .accessibilityElement(children: .contain)
+        .safeAreaInset(edge: .bottom) {
+            SignOutButton()
+                .padding()
+        }
     }
     private var agentFullName: String {
         "\(agent.firstName) \(agent.lastName)"
@@ -134,6 +139,31 @@ struct ProfileView: View {
     }
     private func isLicenseValid(_ license: String) -> Bool {
         !license.isEmpty && license.range(of: "^[a-zA-Z0-9]+$", options: .regularExpression) != nil
+    }
+}
+
+struct SignOutButton: View {
+    @EnvironmentObject var authService: AuthenticationService
+    var body: some View {
+        Button(role: .destructive) {
+            do {
+                try Auth.auth().signOut()
+                authService.isAuthenticated = false
+            } catch {
+                print("Sign out failed: \(error.localizedDescription)")
+            }
+        } label: {
+            HStack {
+                Image(systemName: "arrow.backward.square")
+                Text("Sign Out")
+            }
+            .frame(maxWidth: .infinity)
+            .padding()
+            .background(Color.blue)
+            .foregroundColor(.white)
+            .cornerRadius(12)
+        }
+        .padding(.horizontal)
     }
 }
 
