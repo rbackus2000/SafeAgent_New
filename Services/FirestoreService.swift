@@ -1,11 +1,12 @@
 import Foundation
 import FirebaseFirestore
 import FirebaseAuth
+import FirebaseStorage
 
 class FirestoreService {
     static let shared = FirestoreService()
     
-    private let db = Firestore.firestore()
+    fileprivate let db = Firestore.firestore()
     
     private init() {
         // Enable more detailed debug logging for Firestore
@@ -587,4 +588,24 @@ class FirestoreService {
             completion(.success(document.data()))
         }
     }
+}
+
+// MARK: - FirestoreService Extension for Profile Image URL
+extension FirestoreService {
+    func updateUserProfileImageUrl(url: String, completion: @escaping (Result<Void, Error>) -> Void) {
+        guard let userId = getCurrentUserId() else {
+            let error = NSError(domain: "FirestoreService", code: 401, userInfo: [NSLocalizedDescriptionKey: "User not authenticated"])
+            completion(.failure(error))
+            return
+        }
+        let userRef = db.collection("users").document(userId)
+        userRef.setData(["profileImageUrl": url], merge: true) { error in
+            if let error = error {
+                completion(.failure(error))
+            } else {
+                completion(.success(()))
+            }
+        }
+    }
 } 
+

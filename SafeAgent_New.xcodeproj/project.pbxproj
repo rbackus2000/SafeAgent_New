@@ -40,9 +40,10 @@
 		BB07BC532DCFEAB500F1C7C4 /* FirebaseFirestoreCombine-Community in Frameworks */ = {isa = PBXBuildFile; productRef = BB07BC522DCFEAB500F1C7C4 /* FirebaseFirestoreCombine-Community */; };
 		BB07BC562DCFEAD700F1C7C4 /* GoogleSignIn in Frameworks */ = {isa = PBXBuildFile; productRef = BB07BC552DCFEAD700F1C7C4 /* GoogleSignIn */; };
 		BB07BC582DCFEAD700F1C7C4 /* GoogleSignInSwift in Frameworks */ = {isa = PBXBuildFile; productRef = BB07BC572DCFEAD700F1C7C4 /* GoogleSignInSwift */; };
-		BB139E4B2DD3850B00E9D8A2 /* FirestoreService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB139E4A2DD3850500E9D8A2 /* FirestoreService.swift */; };
 		BB139E4D2DD391FB00E9D8A2 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = BB139E4C2DD391FB00E9D8A2 /* GoogleService-Info.plist */; };
 		BB90E8E52DD184D50063B784 /* SafeAgent_New.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = BB90E8E12DD184D50063B784 /* SafeAgent_New.xcdatamodeld */; };
+		BBCE17702DD683B100F7372A /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = BBCE176F2DD683B100F7372A /* FirebaseStorage */; };
+		BBCE17742DD688C700F7372A /* FirestoreService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBCE17732DD688C700F7372A /* FirestoreService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -94,9 +95,9 @@
 		BB07BC442DCFE9F800F1C7C4 /* Appointment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Appointment.swift; sourceTree = "<group>"; };
 		BB07BC472DCFEA0A00F1C7C4 /* LicenseValidationRules.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LicenseValidationRules.swift; sourceTree = "<group>"; };
 		BB07BC492DCFEA1200F1C7C4 /* SafeAgentApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafeAgentApp.swift; sourceTree = "<group>"; };
-		BB139E4A2DD3850500E9D8A2 /* FirestoreService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirestoreService.swift; sourceTree = "<group>"; };
 		BB139E4C2DD391FB00E9D8A2 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		BB90E8E22DD184D50063B784 /* SafeAgent_New.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = SafeAgent_New.xcdatamodel; sourceTree = "<group>"; };
+		BBCE17732DD688C700F7372A /* FirestoreService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirestoreService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -126,6 +127,7 @@
 				BB07BC4F2DCFEAB500F1C7C4 /* FirebaseDatabase in Frameworks */,
 				BB07BC532DCFEAB500F1C7C4 /* FirebaseFirestoreCombine-Community in Frameworks */,
 				BB07BC582DCFEAD700F1C7C4 /* GoogleSignInSwift in Frameworks */,
+				BBCE17702DD683B100F7372A /* FirebaseStorage in Frameworks */,
 				BB07BC4D2DCFEAB500F1C7C4 /* FirebaseAuth in Frameworks */,
 				BB07BC512DCFEAB500F1C7C4 /* FirebaseFirestore in Frameworks */,
 			);
@@ -151,7 +153,6 @@
 		BB07BBD12DCFE86E00F1C7C4 = {
 			isa = PBXGroup;
 			children = (
-				BB139E4A2DD3850500E9D8A2 /* FirestoreService.swift */,
 				BB90E8E12DD184D50063B784 /* SafeAgent_New.xcdatamodeld */,
 				BB07BC102DCFE8C600F1C7C4 /* Utilities */,
 				BB07BC0F2DCFE8BE00F1C7C4 /* Views */,
@@ -190,6 +191,7 @@
 		BB07BC0D2DCFE8AB00F1C7C4 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				BBCE17732DD688C700F7372A /* FirestoreService.swift */,
 				BB07BC392DCFE9E700F1C7C4 /* AuthenticationService.swift */,
 				BB07BC3A2DCFE9E700F1C7C4 /* CalendarService.swift */,
 				BB07BC3B2DCFE9E700F1C7C4 /* MLSService.swift */,
@@ -289,6 +291,7 @@
 				BB07BC522DCFEAB500F1C7C4 /* FirebaseFirestoreCombine-Community */,
 				BB07BC552DCFEAD700F1C7C4 /* GoogleSignIn */,
 				BB07BC572DCFEAD700F1C7C4 /* GoogleSignInSwift */,
+				BBCE176F2DD683B100F7372A /* FirebaseStorage */,
 			);
 			productName = SafeAgent_New;
 			productReference = BB07BBDA2DCFE86E00F1C7C4 /* SafeAgent_New.app */;
@@ -420,6 +423,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BB07BC162DCFE96200F1C7C4 /* AccessibilityIdentifiers.swift in Sources */,
+				BBCE17742DD688C700F7372A /* FirestoreService.swift in Sources */,
 				BB07BC222DCFE9A100F1C7C4 /* CalendarOnboardingView.swift in Sources */,
 				BB07BC352DCFE9C300F1C7C4 /* SafetyDashboardView.swift in Sources */,
 				BB07BC362DCFE9C300F1C7C4 /* ProfileView.swift in Sources */,
@@ -430,7 +434,6 @@
 				BB90E8E52DD184D50063B784 /* SafeAgent_New.xcdatamodeld in Sources */,
 				BB07BC302DCFE9BB00F1C7C4 /* LoginView.swift in Sources */,
 				BB07BC312DCFE9BB00F1C7C4 /* NotificationOnboardingView.swift in Sources */,
-				BB139E4B2DD3850B00E9D8A2 /* FirestoreService.swift in Sources */,
 				BB07BC4A2DCFEA1200F1C7C4 /* SafeAgentApp.swift in Sources */,
 				BB07BC452DCFE9F800F1C7C4 /* Agent.swift in Sources */,
 				BB07BC462DCFE9F800F1C7C4 /* Appointment.swift in Sources */,
@@ -614,6 +617,7 @@
 				INFOPLIST_FILE = "SafeAgent-New-Info.plist";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				INFOPLIST_KEY_NSCalendarsUsageDescription = "This app needs access to your calendar to show your appointments and events";
+				INFOPLIST_KEY_NSContactsUsageDescription = "SafeAgent needs access to your contacts to let you select emergency contacts";
 				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "This app needs your location to enable safety features at showings";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "This app needs your location to enable safety features at showings";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -653,6 +657,7 @@
 				INFOPLIST_FILE = "SafeAgent-New-Info.plist";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				INFOPLIST_KEY_NSCalendarsUsageDescription = "This app needs access to your calendar to show your appointments and events";
+				INFOPLIST_KEY_NSContactsUsageDescription = "SafeAgent needs access to your contacts to let you select emergency contacts";
 				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "This app needs your location to enable safety features at showings";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "This app needs your location to enable safety features at showings";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -839,6 +844,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = BB07BC542DCFEAD700F1C7C4 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */;
 			productName = GoogleSignInSwift;
+		};
+		BBCE176F2DD683B100F7372A /* FirebaseStorage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = BB07BC4B2DCFEAB500F1C7C4 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseStorage;
 		};
 /* End XCSwiftPackageProductDependency section */
 
