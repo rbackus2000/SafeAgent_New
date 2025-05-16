@@ -79,9 +79,8 @@ struct PanicButtonView: View {
         let now = Date()
         let appointment = fetchCurrentAppointment(at: now)
         let gpsString = "Lat: \(loc.coordinate.latitude), Lon: \(loc.coordinate.longitude)"
-        let googleMapsApiKey = "AIzaSyBJH59c5qbcwxnSaIniAWEFTlvwfDkHwUs"
         let mapUrl = "https://maps.google.com/?q=\(loc.coordinate.latitude),\(loc.coordinate.longitude)"
-        let staticMapUrl = "https://maps.googleapis.com/maps/api/staticmap?center=\(loc.coordinate.latitude),\(loc.coordinate.longitude)&zoom=19&size=600x400&maptype=satellite&markers=color:red%7Clabel:A%7C\(loc.coordinate.latitude),\(loc.coordinate.longitude)&key=\(googleMapsApiKey)"
+        let staticMapUrl = "https://maps.googleapis.com/maps/api/staticmap?center=\(loc.coordinate.latitude),\(loc.coordinate.longitude)&zoom=19&size=600x400&maptype=satellite&markers=color:red%7Clabel:A%7C\(loc.coordinate.latitude),\(loc.coordinate.longitude)&key=AIzaSyBJH59c5qbcwxnSaIniAWEFTlvwfDkHwUs"
         var address = gpsString
         let notes = composeNotes(from: appointment, gpsString: gpsString, mapUrl: mapUrl)
         if let appt = appointment, let apptAddr = appt.propertyAddress, !apptAddr.isEmpty {
@@ -90,6 +89,15 @@ struct PanicButtonView: View {
         self.lastMapUrl = mapUrl
         self.lastStaticMapUrl = staticMapUrl
         isSending = true
+        let sandboxToken = "G2ij1Bi0IaouXqesiSRAHLd2uvQztdAV" // <-- Noonlight sandbox token
+        notificationService.testNoonlightSandboxToken(sandboxToken: sandboxToken) { success, message in
+            isSending = false
+            alertSuccess = success
+            alertMessage = success ? "Emergency alert sent! You will receive a text message asking 'What is your emergency?' If you do not respond, emergency services will be dispatched to your location." : (message ?? "Unknown error.")
+            alertShown = true
+        }
+        /*
+        // Production call (restore this when ready for production)
         notificationService.sendNoonlightPanicAlert(
             userId: agentId,
             location: loc.coordinate,
@@ -101,6 +109,7 @@ struct PanicButtonView: View {
             alertMessage = message ?? (success ? "Emergency alert sent successfully." : "Unknown error.")
             alertShown = true
         }
+        */
     }
 
     private func fetchCurrentAppointment(at date: Date) -> AppointmentEntity? {

@@ -92,4 +92,48 @@ class NotificationService: NSObject, ObservableObject, MFMessageComposeViewContr
         task.resume()
     }
 
+    // MARK: - Noonlight Sandbox Token Test
+    func testNoonlightSandboxToken(sandboxToken: String, completion: @escaping (Bool, String?) -> Void) {
+        let url = URL(string: "https://api-sandbox.noonlight.com/dispatch/v1/alarms")!
+        var request = URLRequest(url: url)
+        request.httpMethod = "POST"
+        request.setValue("Bearer \(sandboxToken)", forHTTPHeaderField: "Authorization")
+        request.setValue("application/json", forHTTPHeaderField: "accept")
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        let payload: [String: Any] = [
+            "name": "SafeAgent Test Alarm",
+            "phone": "14692652460",
+            "location": [
+                "address": [
+                    "line1": "205 Portina Dr.",
+                    "city": "Anna",
+                    "state": "TX",
+                    "zip": "75409"
+                ]
+            ]
+        ]
+        request.httpBody = try? JSONSerialization.data(withJSONObject: payload)
+
+        let task = URLSession.shared.dataTask(with: request) { data, response, error in
+            if let error = error {
+                print("Noonlight Sandbox Test Error: \(error.localizedDescription)")
+                completion(false, "Error: \(error.localizedDescription)")
+                return
+            }
+            guard let httpResponse = response as? HTTPURLResponse else {
+                print("Noonlight Sandbox Test: No response")
+                completion(false, "No response")
+                return
+            }
+            let msg = String(data: data ?? Data(), encoding: .utf8)
+            print("Noonlight Sandbox Test Status: \(httpResponse.statusCode), Response: \(msg ?? "")")
+            if httpResponse.statusCode == 201 {
+                completion(true, msg)
+            } else {
+                completion(false, "Status: \(httpResponse.statusCode), Response: \(msg ?? "")")
+            }
+        }
+        task.resume()
+    }
+
 }

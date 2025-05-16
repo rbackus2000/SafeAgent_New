@@ -185,6 +185,9 @@
 - Noonlight API integration requires correct endpoint, valid bearer token, and proper OAuth scopes (e.g., `write:alarm`). Webhook URL is only needed for backend event notifications, not for basic panic alerting from the app. (June 15, 2025)
 - Firebase Storage will reject uploads with incorrect contentType (e.g., text/plain); always set correct image contentType in upload metadata. (June 16, 2025)
 
+- Panic button now always uses the Noonlight sandbox endpoint and the provided sandbox token (G2ij1Bi0IaouXqesiSRAHLd2uvQztdAV) for all alarm tests. To revert to production, restore the production API call and update the token. (June 16, 2025)
+- Noonlight sandbox integration: reverted payload to address-only (no coordinates) per API requirements, fixed function signature and call in PanicButtonView, and confirmed production alert logic still uses coordinates. Geocoding and map logic elsewhere in the app is unaffected. (June 16, 2025)
+
 ---
 
 Last updated: June 15, 2025 
